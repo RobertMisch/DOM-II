@@ -50,9 +50,6 @@ the next is the bubbling phase, where it goes to each layer outside of the targe
 //   window.addEventListener('click', clickEventHandler)
 
 //my code
-function clickEventPropEx(){
-    console.log('needs to be only 1')
-}
 function clickEventHandler(){
     console.log('placeholder')
 }
@@ -94,31 +91,47 @@ function navMouseOut(e){
 document.querySelector('.nav-container').addEventListener('mouseover', navMouseOver)
 //mouseout 3
 document.querySelector('.nav-container').addEventListener('mouseout', navMouseOut)
-//stop propagation
-// document.querySelector('.nav-container').addEventListener('click', navClickStopPropagation)
-
-document.querySelector('a').addEventListener('click', clickEventPropEx)
-document.querySelector('nav').addEventListener('click', clickEventPropEx)
 
 //mouseenter 4
-document.querySelector('header').addEventListener('mouseenter', clickEventHandler)
+document.querySelector('header').addEventListener('mouseenter', navMouseOver)
 //mouseleave 5
-document.querySelector('header').addEventListener('mouseleave', clickEventHandler)
+document.querySelector('header').addEventListener('mouseleave', navMouseOut)
 
 //mousemove 6
-document.querySelector('img').addEventListener('mousemove', clickEventHandler)
+function coordinates(e){
+    document.querySelector('.intro h2').textContent = `X cord ${e.clientX}, Ycord ${e.clientY}`
+}
+function coordinatesStop(){
+    document.querySelector('.intro h2').textContent = "Welcome To Fun Bus!"
+}
+document.querySelector('img').addEventListener('mousemove', coordinates)
+document.querySelector('img').addEventListener('mouseleave', coordinatesStop)
 
 //keydown 7
-
+document.querySelector('*').addEventListener('keydown', function(e){
+    // console.log('working')
+    // e.target.style.fontSize = '50px'
+    document.querySelector('.intro p').style.fontSize = '50px'
+})
 //keyup 8
-
+document.querySelector('*').addEventListener('keyup', function(e){
+    // e.target.style.fontSize = '1rem'
+    document.querySelector('.intro p').style.fontSize = '20px'
+})
 //wheel
 
 //drag/drop
 
 //load
 
-//focus
+//focus 9
+document.querySelector('#form input:nth-of-type(2)').addEventListener('focus', function(e){
+    e.target.style.background = 'blue'
+})
+//blur 10
+document.querySelector('#form input:nth-of-type(2)').addEventListener('blur', function(e){
+    e.target.style.background = ''
+})
 
 //resize
 
@@ -126,7 +139,17 @@ document.querySelector('img').addEventListener('mousemove', clickEventHandler)
 
 //select
 
-//dblclick
+//dblclick 10
+
+//stop propagation
+// document.querySelector('.nav-container').addEventListener('click', navClickStopPropagation)
+function clickEventPropEx(e){
+    console.log('needs to be only 1')
+    e.stopPropagation()
+}
+
+document.querySelector('a').addEventListener('click', clickEventPropEx)
+document.querySelector('nav').addEventListener('click', clickEventPropEx)
 
 //other students code
 // var busImg = document.querySelector(".intro img");
