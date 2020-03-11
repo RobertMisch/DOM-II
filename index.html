@@ -10,6 +10,7 @@
   <link href="css/index.css" rel="stylesheet">
 
   <script src="js/index.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -22,8 +23,8 @@
     <div class="container nav-container">
       <h1 class="logo-heading">Fun Bus</h1>
       <nav class="nav">
-        <a class="nav-link" href="#">Home</a>
-        <a class="nav-link" href="#">About Us</a>
+        <a id="homelink"class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="www.google.com">About Us</a>
         <a class="nav-link" href="#">Blog</a>
         <a class="nav-link" href="#">Contact</a>
       </nav>
@@ -83,6 +84,10 @@
   </div><!-- container -->
 
   <footer class="footer">
+    <form id="form">
+      <input type="text" placeholder="text input">
+      <input type="password" placeholder="password">
+    </form>
     <p>Copyright Fun Bus 2018</p>
   </footer>
 
