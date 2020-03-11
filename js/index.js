@@ -93,9 +93,17 @@ document.querySelector('.nav-container').addEventListener('mouseover', navMouseO
 document.querySelector('.nav-container').addEventListener('mouseout', navMouseOut)
 
 //mouseenter 4
-document.querySelector('header').addEventListener('mouseenter', navMouseOver)
+
+function navMouseOver2(e){
+    e.target.style.backgroundColor = 'blue'
+}
+function navMouseOut2(e){
+    e.target.style.backgroundColor = 'white'
+}
+
+document.querySelector('header').addEventListener('mouseenter', navMouseOver2)
 //mouseleave 5
-document.querySelector('header').addEventListener('mouseleave', navMouseOut)
+document.querySelector('header').addEventListener('mouseleave', navMouseOut2)
 
 //mousemove 6
 function coordinates(e){
@@ -139,7 +147,21 @@ document.querySelector('#form input:nth-of-type(2)').addEventListener('blur', fu
 
 //select
 
-//dblclick 10
+//dblclick 11
+function myGsap(){
+    // console.log('im getting here')
+    gsap.to(".btn", {duration: 3, rotation: 360, scale: 0.5});
+}
+
+const mybtn = document.querySelectorAll('.btn')
+mybtn.forEach(item => {
+    item.addEventListener('dblclick',myGsap);
+})
+
+
+/*gsap.to("h2.title", {duration: 1, opacity: 0.3});
+gsap.to(".box", {duration: 2, x: 300});
+gsap.to(".green", {duration: 3, rotation: 360, scale: 0.5}); */
 
 //stop propagation
 // document.querySelector('.nav-container').addEventListener('click', navClickStopPropagation)
